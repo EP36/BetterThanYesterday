@@ -1,2 +1,0 @@
-# BetterThanYesterday
-Positivity Enablement Platform
