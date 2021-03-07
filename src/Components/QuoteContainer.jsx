@@ -80,23 +80,27 @@ const QuoteContainer = props => {
             <div id='quote-textfield-container'>
               <div id='copy-container'>
                 <Typography variant="h3">
-                  Quote Generator
+                  Quote Image Generator
+                </Typography>
+
+                <Typography variant="h4">
+                  Free Online Quote Image Generator
                 </Typography>
 
                 <Typography variant="h6">
-                  Free Online Quote Generator
+                  Less working, more creating!
                 </Typography>
 
+                <br/>
                 <br/>
 
                 <Typography variant="subtitle1">
-                With this tool you can generate beautiful, pre-filtered images with your favorite quote. The <b>Free Online Quote Generator</b> takes in any quote and layers that on-top of an AI-generated image from a curated list of beautiful images from  <a href="http://unsplash.com">Unsplash</a>.
+                With this tool you can generate beautiful, pre-filtered images with your favorite quote. The <b>Free Online Quote Image Generator</b> takes in any quote and layers that on-top of an AI-generated image from a curated list of beautiful images from  <a href="http://unsplash.com">Unsplash</a>.
+                <br/>
                 <br/>
                 <b>Simply enter your favorite quote below, submit & screenshot!</b>
-                <br/>
-                Less working, more creating!
                 </Typography>
-
+                <br/>
                 <br/>
               </div>
               <OutlinedInput

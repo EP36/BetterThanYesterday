@@ -2,6 +2,11 @@
   #header-logo {
     font-size: 30px !important;
   }
+
+  #quote-textfield-container {
+    height: 85vh !important;
+  }
+
   #submit-instructions {
     font-size: medium;
   }
@@ -9,6 +14,7 @@
   #copy-container {
     width: 320px !important;
   }
+
 }
 
 img {
@@ -58,7 +64,7 @@ img {
 }
 
 #copy-container {
-  width: 400px;
+  width: 600px;
 }
 
 #circular-progress {
