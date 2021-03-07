@@ -1,8 +1,15 @@
-import { useRef, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { TextField, Typography, Container, Box, Button, OutlinedInput } from '@material-ui/core';
 import html2canvas from 'html2canvas';
 import { saveAs } from 'file-saver';
 import { makeStyles } from '@material-ui/core/styles';
+import { createApi } from "unsplash-js";
+
+const api = createApi({
+  // Don't forget to set your access token here!
+  // See https://unsplash.com/developers
+  accessKey: "cDt2eI6eJSUZZvHbsDHp9ESR2h04QqZ1zl7QByMXvlI"
+});
 
 const useStyles = makeStyles({
   button_root: {
@@ -21,8 +28,12 @@ const QuoteContainer = props => {
   const classes = useStyles();
   const [quote, setQuote] = useState('');
   const [submittedQuote, setSubmittedQuote] = useState('');
+  const [fetchedImg, setFetchedImg] = useState([]);
   const [loading, setLoading] = useState(false);
-  const textfieldRef = useRef(null);
+
+  useEffect(() => {
+    console.log('fetchedImg', fetchedImg)
+  })
 
   const takeShot = () => {
     var element = document.getElementById("quote-overlay");
@@ -34,9 +45,22 @@ const QuoteContainer = props => {
     });
   };
 
+  const fetchImage = useCallback(() => {
+    setLoading(true);
+    api.photos.getRandom({
+      query: 'city',
+      count: 1,
+      orientation: 'landscape'
+    }).then((res) => {
+      setFetchedImg(res.response);
+      setLoading(false);
+    })
+  }, [])
+
   const handleSubmit = e => {
     e.preventDefault();
     
+    fetchImage();
     setSubmittedQuote(quote);
     setQuote('')
   };
@@ -58,6 +82,7 @@ const QuoteContainer = props => {
       </div>
       <div id='quote-photo'>
         <div id='quote-overlay'>
+          
           <h2>
             {submittedQuote}
           </h2>

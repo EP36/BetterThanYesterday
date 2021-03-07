@@ -44,6 +44,13 @@
   
 }
 
+#circular-progress {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
 #quote-photo {
   width: 100vw;
   display: flex;
