@@ -1,10 +1,7 @@
 import React from 'react'
-import { CircularProgress, TextField, Typography, Container, Box } from '@material-ui/core';
+import { CircularProgress } from '@material-ui/core';
 import { useState, useEffect } from 'react';
-import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import '../Stylesheets/App.css';
-import MenuAppBar from './MenuAppBar';
-import ImageEditor from './ImageEditor';
 import Header from './Header';
 import QuoteContainer from './QuoteContainer';
 import { createApi } from "unsplash-js";
@@ -17,7 +14,7 @@ const api = createApi({
 
 function App(props) {
   const [bgStyle, setBgStyle] = useState({});
-  const [imgSrc, setImgSrc] = useState('');
+  // const [imgSrc, setImgSrc] = useState('');
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -43,7 +40,7 @@ function App(props) {
       }
       fetchData();
     // }
-  }, [imgSrc])
+  }, [])
   return (
     <div className="App">
       {
@@ -58,6 +55,9 @@ function App(props) {
           </>
         )
       }
+      <footer>
+        <span style={{ color: '#faf9f9' }}>Copyright © 2012-2021 betterthanyesterday.io. All rights reserved.</span>
+      </footer>
     </div>
   );
 }

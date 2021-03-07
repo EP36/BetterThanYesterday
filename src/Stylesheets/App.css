@@ -45,13 +45,16 @@ img {
   flex-direction: column;
 }
 
-.quote-textfield-container {
-  height: 250px;
+#quote-textfield-container {
+  height: 70vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  
+}
+
+#copy-container {
+  width: 400px;
 }
 
 #circular-progress {
@@ -130,4 +133,12 @@ img {
   to {
     transform: rotate(360deg);
   }
+}
+
+footer {
+  height: 250px;
+  background-color: #d8e8dc;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
 }

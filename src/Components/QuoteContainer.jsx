@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useState } from 'react';
 import {  Button, OutlinedInput, CircularProgress, Typography } from '@material-ui/core';
 import html2canvas from 'html2canvas';
 import { saveAs } from 'file-saver';
@@ -77,7 +77,28 @@ const QuoteContainer = props => {
       {
         !loading ? (
           <>
-            <div className='quote-textfield-container'>
+            <div id='quote-textfield-container'>
+              <div id='copy-container'>
+                <Typography variant="h3">
+                  Quote Generator
+                </Typography>
+
+                <Typography variant="h6">
+                  Free Online Quote Generator
+                </Typography>
+
+                <br/>
+
+                <Typography variant="subtitle1">
+                With this tool you can generate beautiful, pre-filtered images with your favorite quote. The <b>Free Online Quote Generator</b> takes in any quote and layers that on-top of an AI-generated image from a curated list of beautiful images from  <a href="http://unsplash.com">Unsplash</a>.
+                <br/>
+                <b>Simply enter your favorite quote below, submit & screenshot!</b>
+                <br/>
+                Less working, more creating!
+                </Typography>
+
+                <br/>
+              </div>
               <OutlinedInput
                 id='quote-textfield'
                 value={quote}
@@ -92,7 +113,6 @@ const QuoteContainer = props => {
               /> */}
               <Button className={classes.button_root} onClick={handleSubmit}>Submit</Button>
               <br/>
-              <Typography id='submit-instructions' variant="h6">Submit & Screenshot Quote Picture Below</Typography>
             </div>
             {
               submittedQuote ? (
