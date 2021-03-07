@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
-import {  Button, OutlinedInput, CircularProgress } from '@material-ui/core';
+import {  Button, OutlinedInput, CircularProgress, Typography } from '@material-ui/core';
 import html2canvas from 'html2canvas';
 import { saveAs } from 'file-saver';
 import { makeStyles } from '@material-ui/core/styles';
@@ -90,6 +90,8 @@ const QuoteContainer = props => {
                 placeholder='Enter Your Quote'
               /> */}
               <Button className={classes.button_root} onClick={handleSubmit}>Submit</Button>
+              <br/>
+              <Typography variant="h6">Submit & Screenshot Quote Picture Below</Typography>
             </div>
             <div id='quote-photo'>
               <div id='quote-overlay' style={{ width:"400px", height:"700px" }}>
@@ -99,13 +101,13 @@ const QuoteContainer = props => {
                 <img src={imgSrc} alt={imgSrc} style={{ width: 400 }}  />
               </div>
             </div>
-            <div>
+            {/* <div>
               {
                 submittedQuote ? (
                   <Button className={classes.button_root} onClick={takeShot}>Download</Button>
                 ) : null
               }
-            </div>
+            </div> */}
           </>
         ) : (           
         <div id='circular-progress'>
