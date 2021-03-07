@@ -21,27 +21,27 @@ function App(props) {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    const fetchData = async () => {
-      // setLoading(true);
-      const result = await api.photos.getRandom({
-        query: 'city',
-        count: 1,
-        orientation: 'landscape'
-      });
-      await setImgSrc(result.response[0].urls.full);
-      await setBgStyle({
-        background: `linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url(${imgSrc})`,
-        height:"80vh",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
-       });
-      await setLoading(false);
-      console.log(result)
-
-    }
-
-    fetchData();
+    // if (!loading) {
+      const fetchData = async () => {
+      setLoading(true);
+        const result = await api.photos.getRandom({
+          query: 'city',
+          count: 1,
+          orientation: 'landscape'
+        });
+        await setBgStyle({
+          background: `linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url(${result.response[0].urls.full})`,
+          height:"80vh",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+          backgroundColor: "#89b0ae"
+         });
+        await setLoading(false);
+        console.log(result)
+      }
+      fetchData();
+    // }
   }, [imgSrc])
   return (
     <div className="App">

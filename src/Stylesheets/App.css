@@ -58,16 +58,22 @@
   align-items: center;
   justify-content: center;
 }
+
 #quote-overlay {
-  max-width: 1080px;
+  max-width: 200px;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
+#submitted-quote {
+  position: absolute;
+}
 
 #quote-overlay {
   font-family: Georgia, 'Times New Roman', Times, serif;
+  color: #faf9f9;
 }
 
 .App-logo {

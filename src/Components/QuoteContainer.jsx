@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
-import { TextField, Typography, Container, Box, Button, OutlinedInput } from '@material-ui/core';
+import {  Button, OutlinedInput, CircularProgress } from '@material-ui/core';
 import html2canvas from 'html2canvas';
 import { saveAs } from 'file-saver';
 import { makeStyles } from '@material-ui/core/styles';
@@ -26,35 +26,37 @@ const useStyles = makeStyles({
 
 const QuoteContainer = props => {
   const classes = useStyles();
+  const [imgStyle, setImgStyle] = useState({});
   const [quote, setQuote] = useState('');
   const [submittedQuote, setSubmittedQuote] = useState('');
-  const [fetchedImg, setFetchedImg] = useState([]);
+  const [imgSrc, setImgSrc] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    console.log('fetchedImg', fetchedImg)
-  })
 
   const takeShot = () => {
     var element = document.getElementById("quote-overlay");
+    console.log('element', element)
 
     html2canvas(element).then(function(canvas) {
+      console.log('canvas', canvas)
       canvas.toBlob(function(blob) {
+        console.log('blob', blob)
         const imgdl = saveAs(blob, "fucking.png")
       })
+      // const img = canvas.toDataURL("image/png");;
+      // document.write('<img src="'+img+'"/>');
     });
   };
 
-  const fetchImage = useCallback(() => {
+  const fetchImage = useCallback(async () => {
     setLoading(true);
-    api.photos.getRandom({
+    const result = await api.photos.getRandom({
       query: 'city',
       count: 1,
-      orientation: 'landscape'
-    }).then((res) => {
-      setFetchedImg(res.response);
-      setLoading(false);
+      orientation: 'portrait'
     })
+    setImgSrc(result.response[0].urls.regular)
+    setLoading(false);
   }, [])
 
   const handleSubmit = e => {
@@ -65,37 +67,52 @@ const QuoteContainer = props => {
     setQuote('')
   };
 
-  const handleChange = e => {
+  const handleQuoteChange = e => {
     setQuote(e.target.value);
   }
 
   return (
     <div className='quote-container'>
-      <div className='quote-textfield-container'>
-        <OutlinedInput
-          id='quote-textfield'
-          value={quote}
-          onChange={handleChange}
-          placeholder='Enter Your Quote'
-        />
-        <Button className={classes.button_root} onClick={handleSubmit}>Submit</Button>
-      </div>
-      <div id='quote-photo'>
-        <div id='quote-overlay'>
-          
-          <h2>
-            {submittedQuote}
-          </h2>
-        </div>
-      </div>
-      <div>
-        {
-          submittedQuote ? (
-            <Button className={classes.button_root} onClick={takeShot}>Download</Button>
-          ) : null
-        }
-      </div>
-    </div>
+      {
+        !loading ? (
+          <>
+            <div className='quote-textfield-container'>
+              <OutlinedInput
+                id='quote-textfield'
+                value={quote}
+                onChange={handleQuoteChange}
+                placeholder='Enter Your Quote'
+              />
+              {/* <OutlinedInput
+                id='quote-textfield'
+                value={author}
+                onChange={handleAuthorChange}
+                placeholder='Enter Your Quote'
+              /> */}
+              <Button className={classes.button_root} onClick={handleSubmit}>Submit</Button>
+            </div>
+            <div id='quote-photo'>
+              <div id='quote-overlay'>
+                <span id='submitted-quote'>
+                  {submittedQuote}
+                </span>
+                <img src={imgSrc} alt={imgSrc} style={{ width: 200 }}  />
+              </div>
+            </div>
+            <div>
+              {
+                submittedQuote ? (
+                  <Button className={classes.button_root} onClick={takeShot}>Download</Button>
+                ) : null
+              }
+            </div>
+          </>
+        ) : (           
+        <div id='circular-progress'>
+          <CircularProgress />
+        </div>)
+      }
+    </div>  
   )
 };
 
