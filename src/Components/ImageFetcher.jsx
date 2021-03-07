@@ -27,7 +27,7 @@ const PhotoComp = ({ photo }) => {
   );
 };
 
-const Body = () => {
+const ImageFetcher = () => {
   const [data, setPhotosResponse] = useState(null);
 
   useEffect(() => {
@@ -65,12 +65,4 @@ const Body = () => {
   }
 };
 
-const Home = () => {
-  return (
-    <main className="root">
-      <Body />
-    </main>
-  );
-};
-
-ReactDOM.render(<Home />, document.getElementById("root"));
+export default ImageFetcher;

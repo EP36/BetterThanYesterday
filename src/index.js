@@ -4,6 +4,8 @@ import 'fontsource-roboto';
 import './Stylesheets/index.css';
 import App from './Components/App';
 import reportWebVitals from './reportWebVitals';
+import { config } from 'dotenv';
+config();
 
 ReactDOM.render(
   <React.StrictMode>
