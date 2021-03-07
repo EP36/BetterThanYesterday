@@ -34,7 +34,7 @@ const QuoteContainer = props => {
 
 
   const takeShot = () => {
-    var element = document.getElementById("quote-overlay");
+    var element = document.getElementById("quote-photo");
     console.log('element', element)
 
     html2canvas(element).then(function(canvas) {
@@ -92,7 +92,7 @@ const QuoteContainer = props => {
               <Button className={classes.button_root} onClick={handleSubmit}>Submit</Button>
             </div>
             <div id='quote-photo'>
-              <div id='quote-overlay'>
+              <div id='quote-overlay' style={{ width:"400px", height:"700px" }}>
                 <span id='submitted-quote'>
                   {submittedQuote}
                 </span>
