@@ -8,7 +8,7 @@
 }
 
 img {
-  filter: sepia(100%) saturate(300%) brightness(70%) hue-rotate(180deg) !important;
+  filter: sepia(100%) saturate(300%) brightness(50%) hue-rotate(170deg);
   z-index: -9;
 }
 
@@ -43,7 +43,6 @@ img {
 .quote-container {
   display: flex;
   flex-direction: column;
-  
 }
 
 .quote-textfield-container {
@@ -52,10 +51,6 @@ img {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  
-}
-
-#quote-textfield:focus {
   
 }
 
@@ -75,7 +70,7 @@ img {
 }
 
 #quote-overlay {
-  max-width: 400px;
+  max-width: 350px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -84,6 +79,15 @@ img {
 
 #submitted-quote {
   position: absolute;
+}
+
+#watermark {
+  width: 36px;
+  position: absolute;
+  z-index: 3;
+  opacity: 80%;
+  top: 200px;
+  left: 325px;
 }
 
 #quote-overlay {

@@ -4,6 +4,7 @@ import html2canvas from 'html2canvas';
 import { saveAs } from 'file-saver';
 import { makeStyles } from '@material-ui/core/styles';
 import { createApi } from "unsplash-js";
+import watermark from '../assets/logo192.png'
 
 const api = createApi({
   // Don't forget to set your access token here!
@@ -96,11 +97,14 @@ const QuoteContainer = props => {
             {
               submittedQuote ? (
               <div id='quote-photo'>
-                <div id='quote-overlay' style={{ width:"400px", height:"700px" }}>
+                <div id='quote-overlay' style={{ width: "300px", height: "700px", lineHeight: "36px" }}>
                   <span id='submitted-quote'>
                     {submittedQuote}
                   </span>
-                  <img src={imgSrc} alt={imgSrc} style={{ width: 400 }}  />
+                  <div id='watermark-container' style={{ position: 'relative', width: '400px' }} >
+                    <img id='watermark' src={watermark} alt={watermark} />
+                  </div>
+                  <img src={imgSrc} alt={imgSrc} style={{ width: 370 }}  />
                 </div>
               </div>
               ) : null
