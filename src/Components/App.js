@@ -1,5 +1,5 @@
 import React from 'react'
-import { CircularProgress } from '@material-ui/core';
+import { CircularProgress, Typography } from '@material-ui/core';
 import { useState, useEffect } from 'react';
 import '../Stylesheets/App.css';
 import Header from './Header';
@@ -56,6 +56,13 @@ function App(props) {
         )
       }
       <footer>
+        <div className='footer-container'>
+          <div className='footer-text-container'>
+            <Typography variant="h6">
+              Contact us 📧: <a href="ep@betterthanyesterday.io">ep@betterthanyesterday.io</a>
+            </Typography>
+          </div>
+        </div>
         <span style={{ color: '#faf9f9' }}>Copyright © 2012-2021 betterthanyesterday.io. All rights reserved.</span>
       </footer>
     </div>
