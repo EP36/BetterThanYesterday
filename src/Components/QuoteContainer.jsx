@@ -91,7 +91,7 @@ const QuoteContainer = props => {
               /> */}
               <Button className={classes.button_root} onClick={handleSubmit}>Submit</Button>
               <br/>
-              <Typography variant="h6">Submit & Screenshot Quote Picture Below</Typography>
+              <Typography id='submit-instructions' variant="h6">Submit & Screenshot Quote Picture Below</Typography>
             </div>
             {
               submittedQuote ? (
