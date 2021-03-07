@@ -31,7 +31,7 @@ function App(props) {
         });
         await setBgStyle({
           background: `linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url(${result.response[0].urls.full})`,
-          height:"80vh",
+          height:"69vh",
           width: "100vw",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",

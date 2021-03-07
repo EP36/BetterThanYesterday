@@ -14,6 +14,8 @@
 
 #header-logo {
   text-shadow: 1px 3px #555b6e;
+  font-size: 72px;
+  word-wrap: break-word;
 }
 
 #header-overlay {
@@ -65,7 +67,7 @@
 }
 
 #quote-overlay {
-  max-width: 200px;
+  max-width: 400px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -79,6 +81,8 @@
 #quote-overlay {
   font-family: Georgia, 'Times New Roman', Times, serif;
   color: #faf9f9;
+  font-size: xx-large;
+  font-weight: 800;
 }
 
 .App-logo {
