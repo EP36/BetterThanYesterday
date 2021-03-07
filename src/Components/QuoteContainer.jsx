@@ -34,20 +34,17 @@ const QuoteContainer = props => {
 
 
   const takeShot = () => {
-    // var element = document.getElementById("quote-overlay");
-    // console.log('element', element)
+    var element = document.getElementById("quote-overlay");
+    console.log('element', element)
 
-    // html2canvas(element).then(function(canvas) {
-    //   console.log('canvas', canvas)
-    //   canvas.toBlob(function(blob) {
-    //     console.log('blob', blob)
-    //     const imgdl = saveAs(blob, "fucking.png")
-    //   })
+    html2canvas(element).then(function(canvas) {
+      console.log('canvas', canvas)
+      canvas.toBlob(function(blob) {
+        console.log('blob', blob)
+        const imgdl = saveAs(blob, "fucking.png")
+      })
       // const img = canvas.toDataURL("image/png");;
       // document.write('<img src="'+img+'"/>');
-
-      html2canvas(document.querySelector("#quote-overlay")).then(canvas => {
-        document.body.appendChild(canvas)
     });
   };
 
