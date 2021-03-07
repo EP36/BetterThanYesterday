@@ -23,7 +23,7 @@ function App(props) {
   useEffect(() => {
     // if (!loading) {
       const fetchData = async () => {
-      setLoading(true);
+      // setLoading(true);
         const result = await api.photos.getRandom({
           query: 'city',
           count: 1,
@@ -32,6 +32,7 @@ function App(props) {
         await setBgStyle({
           background: `linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url(${result.response[0].urls.full})`,
           height:"80vh",
+          width: "100vw",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
