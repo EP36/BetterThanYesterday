@@ -167,8 +167,9 @@ export default function HideAppBar(props) {
                   open={openAuthMenu}
                   onClose={handleClose}
                 >
-                  <MenuItem onClick={handleClose}>Profile</MenuItem>
-                  <MenuItem onClick={handleClose}>My account</MenuItem>
+                  <MenuItem onClick={handleClose}>Sign up coming soon!</MenuItem>
+                  {/* <MenuItem onClick={handleClose}>Profile</MenuItem>
+                  <MenuItem onClick={handleClose}>My account</MenuItem> */}
                 </Menu>
               </div>
             )}
