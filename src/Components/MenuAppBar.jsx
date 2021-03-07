@@ -83,19 +83,26 @@ export default function HideAppBar(props) {
 
   const classes = useStyles();
   const [auth, setAuth] = React.useState(true);
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const open = Boolean(anchorEl);
+  const [authAnchorEl, setAuthAnchorEl] = React.useState(null);
+  const [menuAnchorEl, setMenuAnchorEl] = React.useState(null);
+  const openAuthMenu = Boolean(authAnchorEl);
+  const openMenu = Boolean(menuAnchorEl);
 
   const handleChange = (event) => {
     setAuth(event.target.checked);
   };
 
   const handleMenu = (event) => {
-    setAnchorEl(event.currentTarget);
+    setMenuAnchorEl(event.currentTarget);
+  }
+
+  const handleAuthMenu = (event) => {
+    setAuthAnchorEl(event.currentTarget);
   };
 
   const handleClose = () => {
-    setAnchorEl(null);
+    setMenuAnchorEl(null);
+    setAuthAnchorEl(null)
   };
 
   const trigger = useScrollTrigger({
@@ -110,26 +117,12 @@ export default function HideAppBar(props) {
       <ElevationScroll {...props}>
       <AppBar className="navbar">
           <Toolbar>
-            <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+            <IconButton onClick={handleMenu} edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
               <MenuIcon />
             </IconButton>
-            <Typography variant="h6" className={classes.title}>
-              {trigger ? "Better Than Yesterday" : null}
-            </Typography>
-            {auth && (
-              <div>
-                <IconButton
-                  aria-label="account of current user"
-                  aria-controls="menu-appbar"
-                  aria-haspopup="true"
-                  onClick={handleMenu}
-                  color="inherit"
-                >
-                  <AccountCircle />
-                </IconButton>
-                <Menu
+            <Menu
                   id="menu-appbar"
-                  anchorEl={anchorEl}
+                  anchorEl={menuAnchorEl}
                   anchorOrigin={{
                     vertical: 'top',
                     horizontal: 'right',
@@ -139,7 +132,39 @@ export default function HideAppBar(props) {
                     vertical: 'top',
                     horizontal: 'right',
                   }}
-                  open={open}
+                  open={openMenu}
+                  onClose={handleClose}
+                >
+                  <MenuItem onClick={handleClose}>More info coming soon!</MenuItem>
+                  {/* <MenuItem onClick={handleClose}>My account</MenuItem> */}
+                </Menu>
+            <Typography variant="h6" className={classes.title}>
+              {trigger ? "Better Than Yesterday" : null}
+            </Typography>
+            {auth && (
+              <div>
+                <IconButton
+                  aria-label="account of current user"
+                  aria-controls="menu-appbar"
+                  aria-haspopup="true"
+                  onClick={handleAuthMenu}
+                  color="inherit"
+                >
+                  <AccountCircle />
+                </IconButton>
+                <Menu
+                  id="menu-appbar"
+                  anchorEl={authAnchorEl}
+                  anchorOrigin={{
+                    vertical: 'top',
+                    horizontal: 'right',
+                  }}
+                  keepMounted
+                  transformOrigin={{
+                    vertical: 'top',
+                    horizontal: 'right',
+                  }}
+                  open={openAuthMenu}
                   onClose={handleClose}
                 >
                   <MenuItem onClick={handleClose}>Profile</MenuItem>
