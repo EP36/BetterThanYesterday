@@ -5,6 +5,10 @@
   #submit-instructions {
     font-size: medium;
   }
+
+  #copy-container {
+    width: 320px !important;
+  }
 }
 
 img {
