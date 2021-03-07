@@ -93,14 +93,18 @@ const QuoteContainer = props => {
               <br/>
               <Typography variant="h6">Submit & Screenshot Quote Picture Below</Typography>
             </div>
-            <div id='quote-photo'>
-              <div id='quote-overlay' style={{ width:"400px", height:"700px" }}>
-                <span id='submitted-quote'>
-                  {submittedQuote}
-                </span>
-                <img src={imgSrc} alt={imgSrc} style={{ width: 400 }}  />
+            {
+              submittedQuote ? (
+              <div id='quote-photo'>
+                <div id='quote-overlay' style={{ width:"400px", height:"700px" }}>
+                  <span id='submitted-quote'>
+                    {submittedQuote}
+                  </span>
+                  <img src={imgSrc} alt={imgSrc} style={{ width: 400 }}  />
+                </div>
               </div>
-            </div>
+              ) : null
+            }
             {/* <div>
               {
                 submittedQuote ? (
