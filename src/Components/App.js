@@ -59,7 +59,7 @@ function App(props) {
         <div className='footer-container'>
           <div className='footer-text-container'>
             <Typography variant="h6">
-              Contact us 📧: <a href="ep@betterthanyesterday.io">ep@betterthanyesterday.io</a>
+              Contact us 📧: <a href="ep@betterthanyesterday.io">support@betterthanyesterday.io</a>
             </Typography>
           </div>
         </div>
