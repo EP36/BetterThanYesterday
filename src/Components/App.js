@@ -22,7 +22,7 @@ function App(props) {
       const fetchData = async () => {
       // setLoading(true);
         const result = await api.photos.getRandom({
-          query: 'motivation',
+          query: 'new york city',
           count: 1,
           orientation: 'landscape'
         });
