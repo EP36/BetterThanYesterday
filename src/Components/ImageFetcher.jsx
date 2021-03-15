@@ -32,7 +32,7 @@ const ImageFetcher = () => {
 
   useEffect(() => {
     api.search
-      .getPhotos({ query: "city", orientation: "portrait" })
+      .getPhotos({ query: "motivation", orientation: "portrait" })
       .then(result => {
         setPhotosResponse(result);
       })
