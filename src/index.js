@@ -3,13 +3,16 @@ import ReactDOM from 'react-dom';
 import 'fontsource-roboto';
 import './Stylesheets/index.css';
 import App from './Components/App';
+import { HashRouter } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
 import { config } from 'dotenv';
 config();
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <HashRouter>
+      <App />
+    </HashRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
